@@ -24,11 +24,6 @@
 					<ToolTip>NameService</ToolTip>
 				</Literal>
 				<Literal>
-					<ID>3</ID>
-					<Default>Purpose</Default>
-					<ToolTip>Purpose</ToolTip>
-				</Literal>
-				<Literal>
 					<ID>4</ID>
 					<Default>Controller</Default>
 					<ToolTip>Controller</ToolTip>
@@ -104,83 +99,68 @@
 					<ToolTip>Rollback transaction</ToolTip>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[//------------------------------------------------------------------------------------------------------------------
+			<Code Language="csharp">
+				<![CDATA[//------------------------------------------------------------------------------------------------------------------
 			[Http$1$("[action]")]
-			public IActionResult $2$(
-			    //                                              //PURPOSE:
-			    //                                              //$3$.
-			
+			public IActionResult $2$(			
+			    //                                              //Method: $1$.
 			    //                                              //URL: http://localhost/Odyssey2/$4$
 			    //                                              //      /$2$
-			    //                                              //Method: $1$.
-			
-			    //                                              //Use a JSON like this: visit the class.
 			
 			    //                                               //DESCRIPTION:
 			    //                                               //$5$.
 			
-			    //                                               //RETURNS:
-			    //                                               //      200 - Ok
-			
-			    //                                               //Receives JSON Class with data.
 			    $6$$7$ $8$
 			    )
 			{
-			    StStatus st = StStatus.stGetInitial();
-			    Object obj = null;
-			
-			    if (
-			        //                                          //Validate the data of the model.
-			        ModelState.IsValid
-			        )
-			    {
-			        //                              			//Get the printshop id from token.
-					var idClaim = User.Claims.FirstOrDefault(c => c.Type == "strPrintshopId");
-					String strPrintshopId = idClaim.Value;
+				InftokInfoTokenOdyssey2 inftok = this.GetTokenOdyssey2();
+				ServansServiceAnswerDto servansDto = $9$.servans$2$(inftok, $8$);
 
-					$10$
-					$9$.sub$2$($8$, strPrintshopId, st);
-			    }
-			
-			    IActionResult aresult = Ok(new Respjson1ResponceJson1(st, obj));
-			
-			    return aresult;
+				IActionResult aresult = base.Ok(servansDto);
+				return aresult;
 			}
 			$selected$ $end$
 			//--------------------------------------------------------------------------------------------------------------
-			public static $11$ $9$.sub$2$(
+			public static ServansServiceAnswerDto $9$.servans$2$(
 			    //                                              //Support method of the service
-			
-			    $7$ $8$_I,
-			    String strPrintshopId_I,
-			    StStatus st_I
+				
+				InftokInfoTokenOdyssey2 inftok_I,
+			    $7$ $8$_I
 			    )
 			{
+				ServansServiceAnswerDto servansDto;
 				$12$ $13$$14$$15$
+				
+				//                                              //Establish connection.
 				using Odyssey2Context context = new Odyssey2Context();
-				$16$
-
+				using var dbContextTransaction = context.Database.BeginTransaction();
 				try
 				{
-					PsPrintShop ps = PsPrintShop.psGetByPrintshopId(strPrintshopId_I);
-
+					//											//GetPrintshop
+					PsPrintShop ps = PsPrintShop.psGetByPrintshopId(inftok_I.strPrintshopId, context);
+					
+					StStatus st = StStatus.stGetInitialOk();
 					if (
 						$9$.boolIsValid$2$Data($8$_I, ps, context, 
-							st_I)
+							st)
 						)
 					{
 						$13$$14$
 						$9$.subDoTask$2$($8$_I, ps, context);
-						$17$	
+						$17$
 					}
+					
+					servansDto = new ServansServiceAnswerDto(st, $13$);
 				}
 				catch (Exception ex)
 				{
 					$18$
-					Tools.subExceptionHandler(ex, st_I);
+					Tools.subExceptionHandler(ex);
+					
+					servansDto = ServansServiceAnswerDto.servansGetForException(ex.Message);
 				}
-
-				return $13$;
+			
+				return servansDto;	
 			}
 			
 			//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -192,9 +172,7 @@
 			    Odyssey2Context context_I,
 			    StStatus st_I
 			    )
-			{
-			    st_I.subSetOk();
-			    
+			{			    
 			    
 			    
 			    return st_I.boolStatusOk;
