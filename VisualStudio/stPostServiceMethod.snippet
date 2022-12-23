@@ -55,8 +55,8 @@
 				</Literal>
 				<Literal>
 					<ID>10</ID>
-					<Default>obj = </Default>
-					<ToolTip></ToolTip>
+					<Default>int</Default>
+					<ToolTip>prefix data return</ToolTip>
 				</Literal>
 				<Literal>
 					<ID>11</ID>
@@ -70,7 +70,7 @@
 				</Literal>
 				<Literal>
 					<ID>13</ID>
-					<Default>intReturn</Default>
+					<Default>Return</Default>
 					<ToolTip>Name var return</ToolTip>
 				</Literal>
 				<Literal>
@@ -129,32 +129,32 @@
 			    )
 			{
 				ServansServiceAnswerDto servansDto;
-				$12$ $13$$14$$15$
 				
-				//                                              //Establish connection.
-				using Odyssey2Context context = new Odyssey2Context();
-				using var dbContextTransaction = context.Database.BeginTransaction();
 				try
 				{
+					//											//Establish connection.
+					using Odyssey2Context context = new Odyssey2Context();
+					using var dbContextTransaction = context.Database.BeginTransaction();
+				
 					//											//GetPrintshop
 					PsPrintShop ps = PsPrintShop.psGetByPrintshopId(inftok_I.strPrintshopId, context);
 					
+					$12$ $10$$13$$14$$15$
 					StStatus st = StStatus.stGetInitialOk();
 					if (
 						$9$.boolIsValid$2$Data($8$_I, ps, context, 
 							st)
 						)
 					{
-						$13$$14$
-						$9$.subDoTask$2$($8$_I, ps, context);
+						$10$$13$$14$
+							$9$.$10$$2$($8$_I, ps, context);
 						$17$
 					}
 					
-					servansDto = new ServansServiceAnswerDto(st, $13$);
+					servansDto = new ServansServiceAnswerDto(st, $10$$13$);
 				}
 				catch (Exception ex)
 				{
-					$18$
 					Tools.subExceptionHandler(ex);
 					
 					servansDto = ServansServiceAnswerDto.servansGetForException(ex.Message);
@@ -170,16 +170,16 @@
 			    $7$ $8$_I,
 				PsPrintShop ps_I,
 			    Odyssey2Context context_I,
-			    StStatus st_I
+			    StStatus st_M
 			    )
 			{			    
 			    
 			    
-			    return st_I.boolStatusOk;
+			    return st_M.boolStatusOk;
 			}
 			
 			//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-			public static $11$ $9$.subDoTask$2$(
+			public static $12$ $9$.$10$$2$(
 				//                                              //Method that do task of the service.
 				
 			    $7$ $8$_I,
@@ -187,9 +187,9 @@
 			    Odyssey2Context context_I
 			    )
 			{
-			    $12$ $13$$14$$15$
+			    $12$ $10$$13$$14$$15$
 
-				return $13$;
+				return $10$$13$;
 			}]]>
 			</Code>
 		</Snippet>
