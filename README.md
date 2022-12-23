@@ -1,5 +1,7 @@
 # Snippets Backend Towa y base de conocimientos
 
+> [Combinaciones de teclas para dominar Visual Studio Code](https://github.com/cesarluilly/ToolAndCommand-VSCode)
+
 ## Extensiones para Visual Studio
 
 |Extension|Configuracion deseada|Descripcion
