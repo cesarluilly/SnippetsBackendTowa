@@ -14,8 +14,13 @@
 		<Snippet>
 			<Declarations>
 				<Literal>
-					<ID>JobjsonJobJsonBso</ID>
-					<Default>JobjsonJobJsonBso</Default>
+					<ID>JobjsonJobJson</ID>
+					<Default>JobjsonJobJson</Default>
+					<ToolTip>Clase BSO</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>abstractDad</ID>
+					<Default>abstractDad,</Default>
 					<ToolTip>Clase BSO</ToolTip>
 				</Literal>
 				<Literal>
@@ -39,12 +44,44 @@
 					<ToolTip>Prefijo de metodo de retorno del BSO</ToolTip>
 				</Literal>
 				<Literal>
-					<ID>ColName</ID>
-					<Default>Jobjson</Default>
+					<ID>contextInstance</ID>
+					<Default>private Odyssey2Context context_Z;</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>assingContextInstance</ID>
+					<Default>this.context_Z = context_I;</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>asTrackingInstance</ID>
+					<Default>
+						public bool boolAsTracking { get { return boolAsTracking_Z; } }
+						private bool boolAsTracking_Z;
+					</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>assingAsTrackingInstance</ID>
+					<Default>this.boolAsTracking_Z = boolAsTracking_I;</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>pkInstance</ID>
+					<Default>
+						public int intPk { get { return intPk_Z; } }
+						private int intPk_Z;
+					</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>instruccionRemover</ID>
+					<Default>//Remover en caso de herede de clase abstracta</Default>
 					<ToolTip></ToolTip>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[//==================================================================================================================
+			<Code Language="csharp">
+	<![CDATA[//==================================================================================================================
 			//                                                      //Responsabilidad: Proporciona propiedades y comportamientos 
 			//                                                      //   para el objeto.   
 			using System.Data.Entity;
@@ -60,54 +97,18 @@
 			// - Prefijo de metodo de retorno del BSO : jobjsonbso
 			// - Metodo GetOneByPk del Dao : GetOneByPk
 
-			public class $JobjsonJobJsonBso$
+			public class $JobjsonJobJson$Bso : $abstractDad$ 
+				IbuscomBussinessCommonInterface
 			{
 			    //-------------------------------------------------------------------------------------------------------------
 			    //                                                  //INSTANCE VARIABLES.
 
 			    //                                                  //
-			    private IQueryable<$JobjsonentityJobJsonEntityDB$> iqyGetOneByPk_Z;
-			    private Odyssey2Context context_Z;
+			    $contextInstance$ $instruccionRemover$
 
-				public bool boolAsTracking { get { return boolAsTracking_Z; } }
-        		private bool boolAsTracking_Z;
-
-				public bool boolGetCol$ColName$WithQuery { get { return boolGetCol$ColName$WithQuery_Z; } }
-        		private bool boolGetCol$ColName$WithQuery_Z;
-
-				//                                                  //Jobjson
-				private bool boolWasjobJsonExampleCalculatedAux_Z;
-				private String jobjsonExample_Z;
-				public String jobjsonExample { 
-					get {
-						if (
-							//                                      //Get info Tracking.
-							this.boolAsTracking_Z == true
-							)
-						{
-							return this.jobjsonentityJobJson_Z.jobjson;
-						} 
-						else if (
-							//                                      //Get info of column by query.
-							this.boolGetCol$ColName$WithQuery_Z == true
-							)
-						{
-							if (
-								boolWasjobJsonExampleCalculatedAux_Z == false
-								)
-							{
-								boolWasjobJsonExampleCalculatedAux_Z = true;
-								jobjsonExample_Z = this.iqyGetOneByPk_Z.Select(col => col.jobjson).AsNoTracking().FirstOrDefault();
-								return jobjsonExample_Z;
-							}
-						}
-
-						return null;
-					} 
-				}
-
-			    public int intPk { get { return intPk_Z; } }
-			    private int intPk_Z;
+				$asTrackingInstance$ $instruccionRemover$
+				
+				$pkInstance$ $instruccionRemover$
 
 				$selected$ $end$
 
@@ -115,14 +116,11 @@
 			    //                                                  //DYNAMIC VARIABLES.
 
 			    //                                                  //$jobjsonentityJobJson$
-			    private bool boolWas$jobjsonentityJobJson$CalculatedAux_Z;
 			    private $JobjsonentityJobJsonEntityDB$ $jobjsonentityJobJson$_Z;
-			    public $JobjsonentityJobJsonEntityDB$ $jobjsonentityJobJson$
+			    public $JobjsonentityJobJsonEntityDB$ $jobjsonentityJobJson$ $instruccionRemover$
 			    {
 			        get
 			        {
-			            this.subGet$jobjsonentityJobJson$(
-			                out $jobjsonentityJobJson$_Z);
 			            return $jobjsonentityJobJson$_Z;
 			        }
 			    }
@@ -139,105 +137,42 @@
 
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //SUPPORT METHODS TO DYNAMIC VARIABLES.
-
-			    //--------------------------------------------------------------------------------------------------------------
-			    private void subGet$jobjsonentityJobJson$(
-			        //                                              //Get $jobjsonentityJobJson$.
-
-			        out $JobjsonentityJobJsonEntityDB$ $jobjsonentityJobJson$_O
-			        )
-			    {
-			        $jobjsonentityJobJson$_O = this.$jobjsonentityJobJson$_Z;
-			        if (
-			            //                                          //Verify that it is false.
-			            this.boolWas$jobjsonentityJobJson$CalculatedAux_Z == false
-			            )
-			        {
-			            this.boolWas$jobjsonentityJobJson$CalculatedAux_Z = true;
-
-						if (
-							this.boolAsTracking_Z
-							)
-						{
-							$jobjsonentityJobJson$_O = iqyGetOneByPk_Z.FirstOrDefault();
-						}
-						else
-						{
-							if (
-								this.boolGetCol$ColName$WithQuery_Z
-								)
-							{
-								iqyGetOneByPk_Z.Select(col => new $JobjsonentityJobJsonEntityDB$(
-									
-									));
-								$jobjsonentityJobJson$_O = iqyGetOneByPk_Z.AsNoTracking().FirstOrDefault();
-							}
-							else
-							{
-								$jobjsonentityJobJson$_O = iqyGetOneByPk_Z.AsNoTracking().FirstOrDefault();
-							}
-						}
-			        }
-			    }
+				
 
 			    //-------------------------------------------------------------------------------------------------------------
 			    //                                                  //CONSTRUCTORS.
 
 			    //--------------------------------------------------------------------------------------------------------------
-			    public $JobjsonJobJsonBso$(
+			    public $JobjsonJobJson$Bso(
 			        $JobjsonentityJobJsonEntityDB$ $jobjsonentityJobJson$_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
-					,bool boolGetCol$ColName$WithQuery_I
-			        )
+			        ) : base()
 			    {
 			        //                                              //Assig data related to Dto.
-			        this.$jobjsonentityJobJson$_Z = $jobjsonentityJobJson$_I;
-			        this.boolWas$jobjsonentityJobJson$CalculatedAux_Z = true;
-			        this.intPk_Z = $jobjsonentityJobJson$_I.intPk;
-			        this.context_Z = context_I;
-					this.boolAsTracking_Z = boolAsTracking_I;
-					this.boolGetCol$ColName$WithQuery_Z = boolGetCol$ColName$WithQuery_I;
+			        this.$jobjsonentityJobJson$_Z = $jobjsonentityJobJson$_I; $instruccionRemover$
+			        this.intPk_Z = $jobjsonentityJobJson$_I.intPk; $instruccionRemover$
+			        $assingContextInstance$ $instruccionRemover$
+					$assingAsTrackingInstance$ $instruccionRemover$
 					
 
 			        //                                              //Inject dependences.
 
-
-			        //                                              //Init the Query.
-			        this.iqyGetOneByPk_Z = $JobJsonDao$.GetOneByPk(this.intPk, this.context_Z);
 			    }
 
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //TRANSFORMATION METHODS.
 
 			    //--------------------------------------------------------------------------------------------------------------
-			    public void subReset(
-			        //                                              //Reset the info entity for after get info updated.
-
-					bool boolAsTracking_I
-					,bool boolGetCol$ColName$WithQuery_I
-			        )
-			    {
-			        this.boolWas$jobjsonentityJobJson$CalculatedAux_Z = false;
-					this.boolAsTracking_Z = boolAsTracking_I;
-					this.boolGetCol$ColName$WithQuery_Z = boolGetCol$ColName$WithQuery_I;
-					
-
-			        //                                              //Get info.
-			        var init = this.$jobjsonentityJobJson$;
-			    }
-
-			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //ACCESS METHODS.
-			    public static $JobjsonJobJsonBso$ $jobjsonbso$FromDB(
+			    public static $JobjsonJobJson$Bso $jobjsonbso$FromDB(
 				
 			        int intPk_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
-            		,bool boolGetCol$ColName$WithQuery_I
 			        )
 			    {
-			        $JobjsonJobJsonBso$ bso = null;
+			        $JobjsonJobJson$Bso bso = null;
 
 					IQueryable<$JobjsonentityJobJsonEntityDB$> iqy = $JobJsonDao$.GetOneByPk(intPk_I, context_I);
 					$JobjsonentityJobJsonEntityDB$ entity;
@@ -250,39 +185,26 @@
 					}
 					else
 					{
-						if (
-							boolGetCol$ColName$WithQuery_I
-							)
-						{
-							iqy.Select(col => new $JobjsonentityJobJsonEntityDB$(
-								
-								));
-							entity = iqy.AsNoTracking().FirstOrDefault();
-						}
-						else
-						{
-							entity = iqy.AsNoTracking().FirstOrDefault();
-						}
+						entity = iqy.AsNoTracking().FirstOrDefault();
 					}
 
 			        if (
 			            entity != null
 			            )
-			            bso = new $JobjsonJobJsonBso$(entity, context_I, boolAsTracking_I);
+			            bso = new $JobjsonJobJson$Bso(entity, context_I, boolAsTracking_I);
 			        return bso;
 			    }
 
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //ACCESS METHODS.
-			    public static $JobjsonJobJsonBso$ $jobjsonbso$FromIQueryable(
+			    public static $JobjsonJobJson$Bso $jobjsonbso$FromIQueryable(
 				
 			        IQueryable<$JobjsonentityJobJsonEntityDB$> iqy_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
-					,bool boolGetCol$ColName$WithQuery_I
 			        )
 			    {
-			        $JobjsonJobJsonBso$ bso = null;
+			        $JobjsonJobJson$Bso bso = null;
 			        
 					$JobjsonentityJobJsonEntityDB$ entity;
 
@@ -294,35 +216,22 @@
 					}
 					else
 					{
-						if (
-							boolGetCol$ColName$WithQuery_I
-							)
-						{
-							iqy_I.Select(col => new $JobjsonentityJobJsonEntityDB$(
-								
-								));
-							entity = iqy_I.AsNoTracking().FirstOrDefault();
-						}
-						else
-						{
-							entity = iqy_I.AsNoTracking().FirstOrDefault();
-						}
+						entity = iqy_I.AsNoTracking().FirstOrDefault();
 					}
 
 			        if (
 			            entity != null
 			            )
-			            bso = new $JobjsonJobJsonBso$(entity, context_I, boolAsTracking_I);
+			            bso = new $JobjsonJobJson$Bso(entity, context_I, boolAsTracking_I);
 			        return bso;
 			    }
 
 			    //--------------------------------------------------------------------------------------------------------------
-			    public static List<$JobjsonJobJsonBso$> darr$jobjsonbso$FromIQueryable(
+			    public static List<$JobjsonJobJson$Bso> darr$jobjsonbso$FromIQueryable(
 				
 			        IQueryable<$JobjsonentityJobJsonEntityDB$> iqy_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
-					,bool boolGetCol$ColName$WithQuery_I
 			        )
 			    {
 			        List<$JobjsonentityJobJsonEntityDB$> darrentity = new List<$JobjsonentityJobJsonEntityDB$>();;
@@ -335,26 +244,20 @@
 					}
 					else
 					{
-						if (
-							boolGetCol$ColName$WithQuery_I
-							)
-						{
-							iqy_I.Select(col => new $JobjsonentityJobJsonEntityDB$(
-								
-								));
-							darrentity = iqy_I.AsNoTracking().ToList();
-						}
-						else
-						{
-							darrentity = iqy_I.AsNoTracking().ToList();
-						}
+						darrentity = iqy_I.AsNoTracking().ToList();
 					}
 
-			        List<$JobjsonJobJsonBso$> darrbso = darrentity.Select(entity => new $JobjsonJobJsonBso$(entity, 
+			        List<$JobjsonJobJson$Bso> darrbso = darrentity.Select(entity => new $JobjsonJobJson$Bso(entity, 
 			                context_I, boolAsTracking_I)).ToList();
 
 			        return darrbso;
 			    }
+				
+				//--------------------------------------------------------------------------------------------------------------
+				public bool boolIsValidForThePkPrintshop(int intPkPrintshop_I)
+				{
+					throw new NotImplementedException();
+				}
 			}
 
 			//==================================================================================================================]]>

@@ -14,8 +14,8 @@
 		<Snippet>
 			<Declarations>
 				<Literal>
-					<ID>WfopWorkflowOptionBso</ID>
-					<Default>WfopWorkflowOptionBso</Default>
+					<ID>WfopWorkflowOption</ID>
+					<Default>WfopWorkflowOption</Default>
 					<ToolTip>Clase BSO</ToolTip>
 				</Literal>
 				<Literal>
@@ -44,7 +44,8 @@
 					<ToolTip>Columnas de la consulta</ToolTip>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[//==================================================================================================================
+			<Code Language="csharp">
+	<![CDATA[//==================================================================================================================
 			//                                                      //Responsabilidad: Proporciona propiedades y comportamientos 
 			//                                                      //   para el objeto.   
 			using System.Data.Entity;
@@ -53,7 +54,7 @@
 			using Odyssey2Backend.DB_Odyssey2;
 			
 			// Clases y metodos necesarios para construir el BSO. Example -->
-			// - Clase BSO : WfopWorkflowOptionBso
+			// - Clase BSO : WfopWorkflowOptionAbstractBso
 			// - Clase Entity : WfopentityWorkflowOptionEntityDB
 			// - Prefijo entity : wfopentityWorkflowOption
 			// - Clase Dao : WfopWorkflowOptionsDao
@@ -61,13 +62,12 @@
 			// - Columnas de la consulta : columnasIQY
 			// - Metodo GetOneByPk del Dao : GetOneByPk
 
-			public abstract class $WfopWorkflowOptionBso$
+			public abstract class $WfopWorkflowOption$AbstractBso
 			{
 			    //-------------------------------------------------------------------------------------------------------------
 			    //                                                  //INSTANCE VARIABLES.
 
-			    //                                                  //
-			    private IQueryable<$WfopentityWorkflowOptionEntityDB$> iqyGetOneByPk_Z;
+			    //                                                  //context
 			    private Odyssey2Context context_Z;
 
 				public bool boolAsTracking { get { return boolAsTracking_Z; } }
@@ -82,14 +82,11 @@
 			    //                                                  //DYNAMIC VARIABLES.
 
 			    //                                                  //$wfopentityWorkflowOption$
-			    private bool boolWas$wfopentityWorkflowOption$CalculatedAux_Z;
 			    private $WfopentityWorkflowOptionEntityDB$ $wfopentityWorkflowOption$_Z;
 			    protected $WfopentityWorkflowOptionEntityDB$ $wfopentityWorkflowOption$
 			    {
 			        get
 			        {
-			            this.subGet$wfopentityWorkflowOption$(
-			                out $wfopentityWorkflowOption$_Z);
 			            return $wfopentityWorkflowOption$_Z;
 			        }
 			    }
@@ -107,31 +104,11 @@
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //SUPPORT METHODS TO DYNAMIC VARIABLES.
 
-			    //--------------------------------------------------------------------------------------------------------------
-			    private void subGet$wfopentityWorkflowOption$(
-			        //                                              //Get $wfopentityWorkflowOption$.
-
-			        out $WfopentityWorkflowOptionEntityDB$ $wfopentityWorkflowOption$_O
-			        )
-			    {
-			        $wfopentityWorkflowOption$_O = this.$wfopentityWorkflowOption$_Z;
-			        if (
-			            //                                          //Verify that it is false.
-			            this.boolWas$wfopentityWorkflowOption$CalculatedAux_Z == false
-			            )
-			        {
-			            this.boolWas$wfopentityWorkflowOption$CalculatedAux_Z = true;
-			            $wfopentityWorkflowOption$_O = this.boolAsTracking_Z ?
-							iqyGetOneByPk_Z.FirstOrDefault() :
-							iqyGetOneByPk_Z.AsNoTracking().FirstOrDefault();
-			        }
-			    }
-
 			    //-------------------------------------------------------------------------------------------------------------
 			    //                                                  //CONSTRUCTORS.
 
 			    //--------------------------------------------------------------------------------------------------------------
-			    public $WfopWorkflowOptionBso$(
+			    public $WfopWorkflowOption$AbstractBso(
 			        $WfopentityWorkflowOptionEntityDB$ $wfopentityWorkflowOption$_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
@@ -139,37 +116,16 @@
 			    {
 			        //                                              //Assig data related to Dto.
 			        this.$wfopentityWorkflowOption$_Z = $wfopentityWorkflowOption$_I;
-			        this.boolWas$wfopentityWorkflowOption$CalculatedAux_Z = true;
 			        this.intPk_Z = $wfopentityWorkflowOption$_I.intPk;
 			        this.context_Z = context_I;
 					this.boolAsTracking_Z = boolAsTracking_I;
 
 			        //                                              //Inject dependences.
 
-
-			        //                                              //Init the Query.
-			        this.iqyGetOneByPk_Z = $WfopWorkflowOptionsDao$.GetOneByPk(this.intPk, this.context_Z);
 			    }
 
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //TRANSFORMATION METHODS.
-
-				//--------------------------------------------------------------------------------------------------------------
-			    protected void subResetPropertiesDad(
-			        //                                              //Reset the info entity for after get info updated.
-
-					bool boolAsTracking_I
-			        )
-			    {
-			        this.boolWas$wfopentityWorkflowOption$CalculatedAux_Z = false;
-					this.boolAsTracking_Z = boolAsTracking_I;
-
-			        //                                              //Get info.
-			        var init = this.$wfopentityWorkflowOption$;
-			    }
-
-				//--------------------------------------------------------------------------------------------------------------
-        		public abstract void subReset(bool boolAsTracking_I);
 
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //ACCESS METHODS.
