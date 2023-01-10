@@ -24,9 +24,9 @@
 					<ToolTip>Data Type of Dynamic var</ToolTip>
 				</Literal>
 				<Literal>
-					<ID>dto</ID>
-					<Default>dto</Default>
-					<ToolTip>Dto</ToolTip>
+					<ID>entity</ID>
+					<Default>entity</Default>
+					<ToolTip>entity</ToolTip>
 				</Literal>
 				<Literal>
 					<ID>intPkForeing</ID>
@@ -34,7 +34,8 @@
 					<ToolTip>Pk Foreing</ToolTip>
 				</Literal>
 			</Declarations>
-			<Code Language="csharp"><![CDATA[//                                                  //$dynamicVarName$Foreign
+			<Code Language="csharp">
+							<![CDATA[//                                                  //$dynamicVarName$Foreign
 			private bool boolWas$dynamicVarName$ForeignCalculatedAux_Z;
 			private $bool$ $dynamicVarName$Foreign_Z;
 			public $bool$ $dynamicVarName$Foreign
@@ -68,7 +69,7 @@
 					{
 						if (
 							//                                  //Verify if it is not the same Pk.
-							$dynamicVarName$Foreign_O.intPk != this.$dto$.$intPkForeing$
+							$dynamicVarName$Foreign_O.intPk != this.$entity$.$intPkForeing$
 							)
 						{
 							$dynamicVarName$Foreign_O = null;
@@ -79,11 +80,11 @@
 						//                                      //It has not value
 						$dynamicVarName$Foreign_O == null &&
 						//                                      //Verify if PkForeing has a value
-						this.$dto$.$intPkForeing$ != null
+						this.$entity$.$intPkForeing$ != null
 						)
 					{
 						//										//Build the instance.
-						$selected$ $end$
+						$dynamicVarName$Foreign_O = $selected$ $end$;
 					}
 				}
 			}]]>
