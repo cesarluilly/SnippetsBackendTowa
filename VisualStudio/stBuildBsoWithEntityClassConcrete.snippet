@@ -24,6 +24,16 @@
 					<ToolTip>Clase BSO</ToolTip>
 				</Literal>
 				<Literal>
+					<ID>interfaceInfoConcrete</ID>
+					<Default>interfaceInfoConcrete,</Default>
+					<ToolTip>Interface of the data concrete of the table</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>dtoInfoConcrete</ID>
+					<Default>dtoInfoConcrete</Default>
+					<ToolTip>Clase BSO</ToolTip>
+				</Literal>
+				<Literal>
 					<ID>JobjsonentityJobJsonEntityDB</ID>
 					<Default>JobjsonentityJobJsonEntityDB</Default>
 					<ToolTip>Clase Entity</ToolTip>
@@ -67,14 +77,6 @@
 					<ToolTip></ToolTip>
 				</Literal>
 				<Literal>
-					<ID>pkInstance</ID>
-					<Default>
-						public int intPk { get { return intPk_Z; } }
-						private int intPk_Z;
-					</Default>
-					<ToolTip></ToolTip>
-				</Literal>
-				<Literal>
 					<ID>instruccionRemover</ID>
 					<Default>//Remover en caso de herede de clase abstracta</Default>
 					<ToolTip></ToolTip>
@@ -97,7 +99,9 @@
 			// - Prefijo de metodo de retorno del BSO : jobjsonbso
 			// - Metodo GetOneByPk del Dao : GetOneByPk
 
-			public class $JobjsonJobJson$Bso : $abstractDad$ 
+			public class $JobjsonJobJson$Bso : 
+				$abstractDad$ 
+				$interfaceInfoConcrete$
 				IbuscomBussinessCommonInterface
 			{
 			    //-------------------------------------------------------------------------------------------------------------
@@ -107,8 +111,6 @@
 			    $contextInstance$ $instruccionRemover$
 
 				$asTrackingInstance$ $instruccionRemover$
-				
-				$pkInstance$ $instruccionRemover$
 
 				$selected$ $end$
 
@@ -165,6 +167,21 @@
 
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //ACCESS METHODS.
+				
+				//--------------------------------------------------------------------------------------------------------------
+			    public static $JobjsonJobJson$Bso $jobjsonbso$AddDB(
+				
+			        $dtoInfoConcrete$ dto_I,
+			        Odyssey2Context context_I
+			        )
+			    {
+				
+					$JobjsonentityJobJsonEntityDB$ entity = null/*invoqueAutomapperWithDto*/;
+					context.Add(entity);
+					return $JobjsonJobJson$Bso(entity, context_I, true);
+			    }
+				
+				//--------------------------------------------------------------------------------------------------------------
 			    public static $JobjsonJobJson$Bso $jobjsonbso$FromDB(
 				
 			        int intPk_I,
@@ -196,7 +213,6 @@
 			    }
 
 			    //--------------------------------------------------------------------------------------------------------------
-			    //                                                  //ACCESS METHODS.
 			    public static $JobjsonJobJson$Bso $jobjsonbso$FromIQueryable(
 				
 			        IQueryable<$JobjsonentityJobJsonEntityDB$> iqy_I,

@@ -19,6 +19,11 @@
 					<ToolTip>Clase BSO</ToolTip>
 				</Literal>
 				<Literal>
+					<ID>interfaceInfoConcrete</ID>
+					<Default>: interfaceInfoConcrete</Default>
+					<ToolTip>Interface of the data concrete of the table</ToolTip>
+				</Literal>
+				<Literal>
 					<ID>WfopentityWorkflowOptionEntityDB</ID>
 					<Default>WfopentityWorkflowOptionEntityDB</Default>
 					<ToolTip>Clase Entity</ToolTip>
@@ -62,7 +67,7 @@
 			// - Columnas de la consulta : columnasIQY
 			// - Metodo GetOneByPk del Dao : GetOneByPk
 
-			public abstract class $WfopWorkflowOption$AbstractBso
+			public abstract class $WfopWorkflowOption$AbstractBso $interfaceInfoConcrete$
 			{
 			    //-------------------------------------------------------------------------------------------------------------
 			    //                                                  //INSTANCE VARIABLES.
@@ -72,9 +77,6 @@
 
 				public bool boolAsTracking { get { return boolAsTracking_Z; } }
         		private bool boolAsTracking_Z;
-
-			    public int intPk { get { return intPk_Z; } }
-			    private int intPk_Z;
 
 				$selected$ $end$
 
