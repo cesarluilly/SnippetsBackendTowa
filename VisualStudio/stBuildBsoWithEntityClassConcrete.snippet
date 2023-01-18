@@ -90,6 +90,7 @@
 			using System.Linq;
 			using Odyssey2Backend.DAO;
 			using Odyssey2Backend.DB_Odyssey2;
+			using Odyssey2Backend.Transversal;
 			
 			// Clases y metodos necesarios para construir el BSO. Example -->
 			// - Clase BSO : JobjsonJobJsonBso
@@ -169,15 +170,19 @@
 			    //                                                  //ACCESS METHODS.
 				
 				//--------------------------------------------------------------------------------------------------------------
-			    public static $JobjsonJobJson$Bso $jobjsonbso$AddDB(
+			    public static $JobjsonJobJson$Bso $jobjsonbso$AddToDB(
 				
 			        $dtoInfoConcrete$ dto_I,
-			        Odyssey2Context context_I
+			        Odyssey2Context context_I,
+					bool boolSaveChanges_I = true
 			        )
 			    {
 				
-					$JobjsonentityJobJsonEntityDB$ entity = null/*invoqueAutomapperWithDto*/;
-					context.Add(entity);
+					$JobjsonentityJobJsonEntityDB$ entity = 
+					AutoMapperConfig.mapper.Map<$JobjsonentityJobJsonEntityDB$>(dto_I);
+					
+					$JobJsonDao$.subAdd(invent, context_M, boolSaveChanges_I);
+					
 					return $JobjsonJobJson$Bso(entity, context_I, true);
 			    }
 				

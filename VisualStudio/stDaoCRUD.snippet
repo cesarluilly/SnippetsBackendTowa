@@ -46,10 +46,16 @@
 				//                                              //Create a new record in the DB
 
 				$1$ $2$_I,
-				Odyssey2Context context_M
+				Odyssey2Context context_M,
+				bool boolSaveChanges_I = true
 				)
 			{
 				context_M.$3$.Add($2$_I);
+				
+				if (
+					boolSaveChanges_I
+					)
+					context_M.SaveChanges();
 			}
 
 			//--------------------------------------------------------------------------------------------------------------
