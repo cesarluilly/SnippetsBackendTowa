@@ -20,7 +20,7 @@
 				</Literal>
 				<Literal>
 					<ID>interfaceInfoConcrete</ID>
-					<Default>: interfaceInfoConcrete</Default>
+					<Default>, interfaceInfoConcrete</Default>
 					<ToolTip>Interface of the data concrete of the table</ToolTip>
 				</Literal>
 				<Literal>
@@ -67,16 +67,10 @@
 			// - Columnas de la consulta : columnasIQY
 			// - Metodo GetOneByPk del Dao : GetOneByPk
 
-			public abstract class $WfopWorkflowOption$AbstractBso $interfaceInfoConcrete$
+			public abstract class $WfopWorkflowOption$AbstractBso : BsoBusinessObject $interfaceInfoConcrete$
 			{
 			    //-------------------------------------------------------------------------------------------------------------
 			    //                                                  //INSTANCE VARIABLES.
-
-			    //                                                  //context
-			    private Odyssey2Context context_Z;
-
-				public bool boolAsTracking { get { return boolAsTracking_Z; } }
-        		private bool boolAsTracking_Z;
 
 				$selected$ $end$
 
@@ -118,9 +112,6 @@
 			    {
 			        //                                              //Assig data related to Dto.
 			        this.$wfopentityWorkflowOption$_Z = $wfopentityWorkflowOption$_I;
-			        this.intPk_Z = $wfopentityWorkflowOption$_I.intPk;
-			        this.context_Z = context_I;
-					this.boolAsTracking_Z = boolAsTracking_I;
 
 			        //                                              //Inject dependences.
 
