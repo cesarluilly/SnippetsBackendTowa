@@ -260,6 +260,21 @@
 				}
 				
 				//--------------------------------------------------------------------------------------------------------------
+			    public static void subAddToDB(
+				
+			        $dtoInfoConcrete$ dto_I,
+			        Odyssey2Context context_M,
+					bool boolSaveChanges_I = true
+			        )
+			    {
+				
+					$JobjsonentityJobJsonEntityDB$ entity = 
+					AutoMapperConfig.mapper.Map<$JobjsonentityJobJsonEntityDB$>(dto_I);
+					
+					$JobJsonDao$.subAdd(entity, context_M, boolSaveChanges_I);
+			    }
+				
+				//--------------------------------------------------------------------------------------------------------------
 			    public static $JobjsonJobJson$Bso $jobjsonbso$AddToDB(
 				
 			        $dtoInfoConcrete$ dto_I,
