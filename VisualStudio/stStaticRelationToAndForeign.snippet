@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>stStaticRelationToAndForeign</Title>
+			<Shortcut>stStaticRelationToAndForeign</Shortcut>
+			<Description>Metodos estaticos para RelationTo and Foreign, nota este snippet de ser
+			equivalente a lo que hay en parte con el snippet de stBuildBsoWithEntityClassConcrete</Description>
+			<Author>CLGA Towa(Cesar Garcia)</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>JobjsonJobJson</ID>
+					<Default>JobjsonJobJson</Default>
+					<ToolTip>Clase BSO</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>abstractDad</ID>
+					<Default>abstractDad,</Default>
+					<ToolTip>Clase BSO</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>interfaceInfoConcrete</ID>
+					<Default>interfaceInfoConcrete,</Default>
+					<ToolTip>Interface of the data concrete of the table</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>dtoInfoConcrete</ID>
+					<Default>dtoInfoConcrete</Default>
+					<ToolTip>Clase BSO</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>JobjsonentityJobJsonEntityDB</ID>
+					<Default>JobjsonentityJobJsonEntityDB</Default>
+					<ToolTip>Clase Entity</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>jobjsonentityJobJson</ID>
+					<Default>jobjsonentityJobJson</Default>
+					<ToolTip>Prefijo Entity</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>JobJsonDao</ID>
+					<Default>JobJsonDao</Default>
+					<ToolTip>Clase Dao</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>jobjsonbso</ID>
+					<Default>jobjsonbso</Default>
+					<ToolTip>Prefijo de metodo de retorno del BSO</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>contextInstance</ID>
+					<Default>private Odyssey2Context context_Z;</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>assingContextInstance</ID>
+					<Default>this.context_Z = context_I;</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>asTrackingInstance</ID>
+					<Default>
+						public bool boolAsTracking { get { return boolAsTracking_Z; } }
+						private bool boolAsTracking_Z;
+					</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>assingAsTrackingInstance</ID>
+					<Default>this.boolAsTracking_Z = boolAsTracking_I;</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+				<Literal>
+					<ID>instruccionRemover</ID>
+					<Default>//Remover en caso de herede de clase abstracta</Default>
+					<ToolTip></ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+	<![CDATA[//**************************************************//RelationTo From This Class
+				//--------------------------------------------------------------------------------------------------------------
+				public static void subGetdarr$jobjsonbso$RelationTo(
+					//                                              //Get $jobjsonbso$RelationTo.
+				
+					IQueryable<$JobjsonentityJobJsonEntityDB$> iqy,
+					ref bool boolWasCalculated_IO,
+					ref List<$JobjsonJobJson$Bso> darr$jobjsonbso$RelationTo_IO,
+					Odyssey2Context context_I,
+					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
+					
+					)
+				{
+					if (
+						//                                          //Verify that it is false.
+						boolWasCalculated_IO != true
+						)
+					{
+						boolWasCalculated_IO = true;
+						darr$jobjsonbso$RelationTo_IO = 
+							$JobjsonJobJson$Bso.darr$jobjsonbso$FromIQueryable(
+								iqy, context_I, boolAsTracking_I);$selected$ $end$
+					}
+				}
+				
+				//--------------------------------------------------------------------------------------------------------------
+				public static void subGet$jobjsonbso$RelationTo(
+					//                                              //Get $jobjsonbso$RelationTo.
+				
+					IQueryable<$JobjsonentityJobJsonEntityDB$> iqy,
+					ref bool boolWasCalculated_IO,
+					ref $JobjsonJobJson$Bso $jobjsonbso$RelationTo_IO,
+					Odyssey2Context context_I,
+					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
+					
+					)
+				{
+					if (
+						//                                          //Verify that it is false.
+						boolWasCalculated_IO != true
+						)
+					{
+						boolWasCalculated_IO = true;
+						$jobjsonbso$RelationTo_IO = 
+							$JobjsonJobJson$Bso.$jobjsonbso$FromIQueryable(
+								iqy, context_I, boolAsTracking_I);$selected$ $end$
+					}
+				}
+				
+				//**************************************************//ForeignTo From This Class
+				//--------------------------------------------------------------------------------------------------------------
+				public static void subGet$jobjsonbso$Foreign(
+					//                                              //Get $jobjsonbso$Foreign.
+
+					int? intnPkForeignFromEntity_I,
+					ref bool boolWasCalculated_IO,
+					ref $JobjsonJobJson$Bso $jobjsonbso$Foreign_IO,
+					Odyssey2Context context_I,
+					bool boolAsTracking_I
+					)
+				{
+					if (
+						//                                          //Verify that it is false.
+						boolWasCalculated_IO != true 
+						)
+					{
+						boolWasCalculated_IO = true;
+						if (
+							//                                      //Verify if already was inject.
+							$jobjsonbso$Foreign_IO != null
+							)
+						{
+							if (
+								//                                  //Verify if it is not the same Pk.
+								$jobjsonbso$Foreign_IO.intPk != intnPkForeignFromEntity_I
+								)
+							{
+								$jobjsonbso$Foreign_IO = null;
+							}
+						}
+
+						if (
+							//                                      //It has not value
+							$jobjsonbso$Foreign_IO == null &&
+							//                                      //Verify if PkForeing has a value
+							intnPkForeignFromEntity_I != null
+							)
+						{
+							//										//Build the instance.
+							$jobjsonbso$Foreign_IO = $selected$ $end$;
+						}
+					}
+				}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

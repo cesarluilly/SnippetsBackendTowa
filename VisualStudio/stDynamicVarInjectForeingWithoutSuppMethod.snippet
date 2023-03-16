@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>stDynamicVarInjectForeingWithoutSuppMethod</Title>
+			<Shortcut>stDynamicVarInjectForeingWithoutSuppMethod</Shortcut>
+			<Description>Code snippet for dynamic var for properties inject</Description>
+			<Author>CLGA Towa(Cesar Garcia)</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>dynamicVarName</ID>
+					<Default>dynamicVarName</Default>
+					<ToolTip>Dynamic variable</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>bool</ID>
+					<Default>bool</Default>
+					<ToolTip>Data Type of Dynamic var</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>Foreign</ID>
+					<Default>Foreign</Default>
+					<ToolTip>Foreign</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>intPkForeing</ID>
+					<Default>intPkForeing</Default>
+					<ToolTip>Pk Foreing</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+							<![CDATA[//                                                  //$dynamicVarName$Foreign
+			private bool boolWas$dynamicVarName$ForeignCalculatedAux_Z;
+			private $bool$ $dynamicVarName$Foreign_Z;
+			public $bool$ $dynamicVarName$Foreign
+			{
+				get
+				{
+					$bool$.$Foreign$($selected$ $end$);
+					return $dynamicVarName$Foreign_Z;
+				}
+			}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

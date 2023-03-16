@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>stDynamicVarRelationToWithoutSuppMethod</Title>
+			<Shortcut>stDynamicVarRelationToWithoutSuppMethod</Shortcut>
+			<Description>Code snippet for dynamic var</Description>
+			<Author>CLGA Towa(Cesar Garcia)</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>bool</ID>
+					<Default>bool</Default>
+					<ToolTip>Data Type of Dynamic var</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>dynamicVarName</ID>
+					<Default>dynamicVarName</Default>
+					<ToolTip>Dynamic variable</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>Foreign</ID>
+					<Default>Foreign</Default>
+					<ToolTip>Foreign static</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+						<![CDATA[//                                                  //$dynamicVarName$RelationTo
+			private bool boolWas$dynamicVarName$RelationToCalculatedAux_Z;
+			private $bool$ $dynamicVarName$RelationTo_Z;
+			public $bool$ $dynamicVarName$RelationTo
+			{
+				get
+				{
+					$bool$.$RelationTo$($selected$ $end$);
+					return $dynamicVarName$RelationTo_Z;
+				}
+			}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

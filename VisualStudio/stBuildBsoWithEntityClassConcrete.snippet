@@ -161,6 +161,104 @@
 			    //--------------------------------------------------------------------------------------------------------------
 			    //                                                  //ACCESS METHODS.
 				
+				//**************************************************//RelationTo From This Class
+				//--------------------------------------------------------------------------------------------------------------
+				public static void subGetdarr$jobjsonbso$RelationTo(
+					//                                              //Get $jobjsonbso$RelationTo.
+				
+					IQueryable<$JobjsonentityJobJsonEntityDB$> iqy,
+					ref bool boolWasCalculated_IO,
+					ref List<$JobjsonJobJson$Bso> darr$jobjsonbso$RelationTo_IO,
+					Odyssey2Context context_I,
+					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
+					
+					)
+				{
+					if (
+						//                                          //Verify that it is false.
+						boolWasCalculated_IO != true
+						)
+					{
+						boolWasCalculated_IO = true;
+						darr$jobjsonbso$RelationTo_IO = 
+							$JobjsonJobJson$Bso.darr$jobjsonbso$FromIQueryable(
+								iqy, context_I, boolAsTracking_I);$selected$ $end$
+					}
+				}
+				
+				//--------------------------------------------------------------------------------------------------------------
+				public static void subGet$jobjsonbso$RelationTo(
+					//                                              //Get $jobjsonbso$RelationTo.
+				
+					IQueryable<$JobjsonentityJobJsonEntityDB$> iqy,
+					ref bool boolWasCalculated_IO,
+					ref $JobjsonJobJson$Bso $jobjsonbso$RelationTo_IO,
+					Odyssey2Context context_I,
+					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
+					
+					)
+				{
+					if (
+						//                                          //Verify that it is false.
+						boolWasCalculated_IO != true
+						)
+					{
+						boolWasCalculated_IO = true;
+						$jobjsonbso$RelationTo_IO = 
+							$JobjsonJobJson$Bso.$jobjsonbso$FromIQueryable(
+								iqy, context_I, boolAsTracking_I);$selected$ $end$
+					}
+				}
+				
+				//**************************************************//ForeignTo From This Class
+				//--------------------------------------------------------------------------------------------------------------
+				public static void subGet$jobjsonbso$Foreign(
+					//                                              //Get $jobjsonbso$Foreign.
+
+					int? intnPkForeignFromEntity_I,
+					ref bool boolWasCalculated_IO,
+					ref $JobjsonJobJson$Bso $jobjsonbso$Foreign_IO,
+					Odyssey2Context context_I,
+					bool boolAsTracking_I
+					)
+				{
+					if (
+						//                                          //Verify that it is false.
+						boolWasCalculated_IO != true 
+						)
+					{
+						boolWasCalculated_IO = true;
+						if (
+							//                                      //Verify if already was inject.
+							$jobjsonbso$Foreign_IO != null
+							)
+						{
+							if (
+								//                                  //Verify if it is not the same Pk.
+								$jobjsonbso$Foreign_IO.intPk != intnPkForeignFromEntity_I
+								)
+							{
+								$jobjsonbso$Foreign_IO = null;
+							}
+						}
+
+						if (
+							//                                      //It has not value
+							$jobjsonbso$Foreign_IO == null &&
+							//                                      //Verify if PkForeing has a value
+							intnPkForeignFromEntity_I != null
+							)
+						{
+							//										//Build the instance.
+							$jobjsonbso$Foreign_IO = $selected$ $end$;
+						}
+					}
+				}
+				
 				//--------------------------------------------------------------------------------------------------------------
 			    public static $JobjsonJobJson$Bso $jobjsonbso$AddToDB(
 				
@@ -184,6 +282,8 @@
 			        int intPk_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
 			        )
 			    {
 			        $JobjsonJobJson$Bso bso = null;
@@ -215,6 +315,8 @@
 			        IQueryable<$JobjsonentityJobJsonEntityDB$> iqy_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
 			        )
 			    {
 			        $JobjsonJobJson$Bso bso = null;
@@ -245,6 +347,8 @@
 			        IQueryable<$JobjsonentityJobJsonEntityDB$> iqy_I,
 			        Odyssey2Context context_I,
 					bool boolAsTracking_I
+					//                                              //Add Dependences init with null.
+					//                                              //Example: ClassName nameVar = null, 
 			        )
 			    {
 			        List<$JobjsonentityJobJsonEntityDB$> darrentity = new List<$JobjsonentityJobJsonEntityDB$>();;
