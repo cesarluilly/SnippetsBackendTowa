@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>stInstanceVarMappingEntity</Title>
+			<Shortcut>stInstanceVarMappingEntity</Shortcut>
+			<Description>Instance var mapping to entity</Description>
+			<Author>CLGA Towa(Cesar Garcia)</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>int</ID>
+					<Default>int</Default>
+					<ToolTip>Data type</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>intPkInstance</ID>
+					<Default>intPkInstance</Default>
+					<ToolTip>Name var Instance</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>intPkEntity</ID>
+					<Default>intPkEntity</Default>
+					<ToolTip>Name var Entity</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>entity</ID>
+					<Default>entity</Default>
+					<ToolTip>Entity</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[//													//$intPkInstance$
+			public $int$ $intPkInstance$ { 
+				get { return this.$entity$.$intPkEntity$; }
+				set { this.$entity$.$intPkEntity$ = value; }
+				}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
