@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>bslPostService</Title>
+			<Shortcut>bslPostService</Shortcut>
+			<Description>Code snippet for a new Post service</Description>
+			<Author>Towa - Backend</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>ServiceName</ID>
+					<Default>ServiceName</Default><ToolTip>ServiceName</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>Controller</ID>
+					<Default>Controller</Default><ToolTip>Controller</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>DataSource</ID>
+					<Default>[FromBody]</Default><ToolTip>DataSource</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>DataClass</ID>
+					<Default>InputDto</Default><ToolTip>ClassReceiveData</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>objDto_I</ID>
+					<Default>objDto_I</Default><ToolTip>nameInstance</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>SupportClass</ID>
+					<Default>SupportClass</Default><ToolTip>SupportClass</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>prefix</ID>
+					<Default>obj</Default><ToolTip>prefix data return</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>Type</ID>
+					<Default>Object</Default><ToolTip>Return type</ToolTip>
+				</Literal>
+				<Literal>
+					<ID>DefaultValue</ID>
+					<Default>null;</Default><ToolTip>DefaultValue</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[//----------------------------------------------------------------------------------------------------------
+			[HttpPost("[action]")]
+			public IActionResult $ServiceName$(			
+			    //                                              //Method: POST.
+			    //                                              //URL: http://localhost/Odyssey2
+			    //                                              //      /$Controller$/$ServiceName$
+			
+			    //                                              //DESCRIPTION:
+			    //                                              //$ServiceName$.
+			
+			    $DataSource$$DataClass$ $objDto_I$
+			    )
+			{
+				InftokInfoTokenOdyssey2 inftok = this.GetTokenOdyssey2();
+				ServansServiceAnswerDto servansDto = $SupportClass$.servans$ServiceName$(inftok, $objDto_I$);
+
+				IActionResult aresult = base.Ok(servansDto);
+				return aresult;
+			}
+			$selected$ $end$
+			/*TASK: $ServiceName$*/
+			//--------------------------------------------------------------------------------------------------------------
+			public static ServansServiceAnswerDto servans$ServiceName$(
+			    //                                              //Support method of $ServiceName$
+				
+				InftokInfoTokenOdyssey2 inftok_I,
+			    $DataClass$ $objDto_I$
+			    )
+			{
+				ServansServiceAnswerDto servansDto;
+				//												//Establish connection.
+				using Odyssey2Context context = new Odyssey2Context();
+				context.BeginTransaction();
+				
+				//												//GetPrintshop
+				PsPrintShop ps = PsPrintShop.psGetByPrintshopId(inftok_I.strPrintshopId, context);
+				
+				$Type$ $prefix$Ans = $DefaultValue$
+				StStatus st = StStatus.stGetInitialOk();
+				if (
+					$SupportClass$.boolIsValid$ServiceName$Data($objDto_I$, ps, context, st)
+					)
+				{
+					$prefix$Ans = $SupportClass$.$prefix$$ServiceName$($objDto_I$, ps, context);
+					
+					context.Commit();
+				}
+				
+				servansDto = new ServansServiceAnswerDto(st, $prefix$Ans);
+			
+				return servansDto;	
+			}
+			
+			//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+			private static bool boolIsValid$ServiceName$Data(
+			    //                                              //Validate data received for $ServiceName$.
+			
+			    $DataClass$ $objDto_I$,
+				PsPrintShop ps_I,
+			    Odyssey2Context context_I,
+			    StStatus st_M
+			    )
+			{			    
+			    /*CASE*/
+				if (
+				    //                                          //Validation
+				    $objDto_I$.IsNull()
+				    )
+				{
+				    st_M.subSetDevError("$objDto_I$ was null");
+				}
+				else if (
+				    //                                          //Validation
+				    false
+				    )
+				{
+				    st_M.subSetUserError("UserError");
+				}
+				else
+				{
+				}
+				/*END-CASE*/
+			    
+			    return st_M.boolStatusOk;
+			}
+			
+			//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+			public static $Type$ $prefix$$ServiceName$(
+				//                                              //$ServiceName$.
+				
+			    $DataClass$ $objDto_I$,
+			    PsPrintShop ps_I,
+			    Odyssey2Context context_M
+			    )
+			{
+			    $Type$ $prefix$$ServiceName$ = $DefaultValue$
+
+				return $prefix$$ServiceName$;
+			}
+			/*END-TASK*/
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
